@@ -38,7 +38,7 @@
             "metadata": {
                 "description": "The location of resources, such as templates and DSC modules, that the template depends on"
             },
-            "defaultValue": "https://raw.githubusercontent.com/reikor0x/FastLabDeployment/main/"
+            "defaultValue": "https://raw.githubusercontent.com/reikor0x/FastLabDeployment/main/artifacts/DC/"
         },
         "_artifactsLocationSasToken": {
             "type": "securestring",
