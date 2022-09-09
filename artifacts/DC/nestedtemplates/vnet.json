@@ -41,8 +41,8 @@
   },
   "resources": [
 	{
-      "type": "Microsoft.Network/networkSecurityGroups",
-  	"apiVersion": "2022-01-01",
+    "type": "Microsoft.Network/networkSecurityGroups",
+  	"apiVersion": "2019-12-01",
       "name": "[parameters('subnetNSGName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -53,7 +53,7 @@
               "protocol": "Tcp",
               "sourcePortRange": "*",
               "destinationPortRange": "3389",
-              "sourceAddressPrefixes": "*",
+              "sourceAddressPrefix": "*",
               "destinationAddressPrefix": "10.0.0.4",
               "access": "Allow",
               "priority": 201,
@@ -66,7 +66,7 @@
     {
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[parameters('virtualNetworkName')]",
-      "apiVersion": "2022-05-01",
+      "apiVersion": "2019-12-01",
       "location": "[parameters('location')]",
       "properties": {
         "addressSpace": {
