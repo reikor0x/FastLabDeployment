@@ -61,6 +61,16 @@
                 "description": "Virtual machine name."
             }
         },
+
+        "subnetNSGName": {
+            "type": "string",
+            "defaultValue": "LabVNET-NSG",
+            "metadata": {
+                "description": "Virtual network name."
+            }
+        },
+
+
         "virtualNetworkName": {
             "type": "string",
             "defaultValue": "LabVNET",
