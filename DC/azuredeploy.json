@@ -281,9 +281,9 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2021-01-01",
             "name": "UpdateVNetDNS",
-            "dependsOn": [
-                "CreateADForest"
-            ],
+//            "dependsOn": [
+  //              "CreateADForest"
+    //        ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
