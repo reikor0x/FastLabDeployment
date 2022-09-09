@@ -61,7 +61,6 @@
                 "description": "Virtual machine name."
             }
         },
-
         "subnetNSGName": {
             "type": "string",
             "defaultValue": "LabVNET-NSG",
@@ -69,8 +68,6 @@
                 "description": "Virtual network name."
             }
         },
-
-
         "virtualNetworkName": {
             "type": "string",
             "defaultValue": "LabVNET",
@@ -160,7 +157,7 @@
                     },
                     "location": {
                         "value": "[parameters('location')]"
-			  },
+			        },
                     "subnetNSGName": {
                         "value": "[parameters('subnetNSGName')]"
                     }
@@ -313,6 +310,9 @@
                     },
                     "location": {
                         "value": "[parameters('location')]"
+                    },
+                    "subnetNSGName": {
+                        "value": "[parameters('subnetNSGName')]"
                     }
                 }
             }
