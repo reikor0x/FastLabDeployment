@@ -316,6 +316,24 @@
                     }
                 }
             }
-        }
+        },
+        {
+     "name": "[concat('shutdown-computevm-', parameters('virtualMachineName'))]",
+     "type": "Microsoft.DevTestLab/schedules",
+     "apiVersion": "2018-09-15",
+     "location": "[parameters('location')]",
+     "dependsOn": [
+         "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
+     ],
+     "properties": {
+         
+         "taskType": "ComputeVmShutdownTask",
+         "dailyRecurrence": {
+             "time": "00:00"
+         },
+         "timeZoneId": "W. Europe Standard Time",
+         "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+     }
+ }
     ]
 }
