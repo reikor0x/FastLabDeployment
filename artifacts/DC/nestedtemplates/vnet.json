@@ -45,23 +45,24 @@
   	"apiVersion": "2019-12-01",
       "name": "[parameters('subnetNSGName')]",
       "location": "[parameters('location')]",
-      "properties": {
-        "securityRules": [
-          {
-            "name": "AllowRDP",
-            "properties": {
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "10.0.0.4",
-              "access": "Allow",
-              "priority": 201,
-              "direction": "Inbound"
+       "properties": {
+                "copy": [
+                    {
+                        "name": "securityRules",
+                        "input": {
+                            "description": "Allow RDP",
+                            "priority": "201",
+                            "protocol": "TCP",
+                            "sourcePortRange": "3389",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "10.0.0.4",
+                            "access": "allow",
+                            "direction": "inbound"
+                        }
+                    }
+                ]
             }
-          }
-        ]
-      }
     },
     {
       "type": "Microsoft.Network/virtualNetworks",
