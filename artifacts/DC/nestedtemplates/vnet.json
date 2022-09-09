@@ -82,10 +82,7 @@
               "addressPrefix": "[parameters('subnetRange')]",
 				      "networkSecurityGroup": {
                 	"id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnetNSGName'))]"
-              },
-              "dependsOn": [
-                  "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnetNSGName'))]"
-                ]
+              }
             }
           }
         ]
