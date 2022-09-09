@@ -119,7 +119,7 @@
             "metadata": {
                 "description": "Subnet IP range."
             }
-        },
+        }
     },
     "resources": [
 
@@ -137,7 +137,7 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-11-01",
+            "apiVersion": "2019-12-01",
             "name": "VNet",
             "properties": {
                 "mode": "Incremental",
@@ -173,7 +173,7 @@
             "name": "[parameters('networkInterfaceName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "VNet",
+                "VNet"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -199,7 +199,7 @@
             "name": "[parameters('virtualMachineName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[parameters('networkInterfaceName')]",
+                "[parameters('networkInterfaceName')]"
             ],
             "properties": {
                 "hardwareProfile": {
