@@ -42,8 +42,8 @@
   "resources": [
 	{
       "type": "Microsoft.Network/networkSecurityGroups",
+  	"apiVersion": "2022-01-01",
       "name": "[parameters('subnetNSGName')]",
-      "apiVersion": "2022-05-01",
       "location": "[parameters('location')]",
       "properties": {
         "securityRules": [
