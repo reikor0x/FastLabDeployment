@@ -159,7 +159,8 @@
                         "value": "[parameters('subnetRange')]"
                     },
                     "location": {
-                        "value": "[parameters('location')]",
+                        "value": "[parameters('location')]"
+			  },
                     "subnetNSGName": {
                         "value": "[parameters('subnetNSGName')]"
                     }
