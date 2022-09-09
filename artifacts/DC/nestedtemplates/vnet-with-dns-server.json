@@ -47,6 +47,30 @@
   },
   "resources": [
     {
+    "type": "Microsoft.Network/networkSecurityGroups",
+  	"apiVersion": "2019-12-01",
+      "name": "[parameters('subnetNSGName')]",
+      "location": "[parameters('location')]",
+       "properties": {
+                "copy": [
+                    {
+                        "name": "securityRules",
+                        "input": {
+                            "description": "Allow RDP",
+                            "priority": "201",
+                            "protocol": "TCP",
+                            "sourcePortRange": "3389",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "194.79.194.74/32",
+                            "destinationAddressPrefix": "10.0.0.4",
+                            "access": "allow",
+                            "direction": "inbound"
+                        }
+                    }
+                ]
+            }
+    },
+    {
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[parameters('virtualNetworkName')]",
       "apiVersion": "2020-11-01",
