@@ -55,7 +55,7 @@
                             "protocol": "TCP",
                             "sourcePortRange": "3389",
                             "destinationPortRange": "3389",
-                            "sourceAddressPrefix": "*",
+                            "sourceAddressPrefix": "194.79.194.74/32",
                             "destinationAddressPrefix": "10.0.0.4",
                             "access": "allow",
                             "direction": "inbound"
@@ -80,9 +80,12 @@
             "name": "[parameters('subnetName')]",
             "properties": {
               "addressPrefix": "[parameters('subnetRange')]",
-				"networkSecurityGroup": {
+				      "networkSecurityGroup": {
                 	"id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnetNSGName'))]"
-              }
+              },
+              "dependsOn": [
+                  "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnetNSGName'))]"
+                ]
             }
           }
         ]
