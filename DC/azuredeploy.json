@@ -137,7 +137,7 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2019-12-01",
+            "apiVersion": "2021-01-01",
             "name": "VNet",
             "properties": {
                 "mode": "Incremental",
@@ -195,7 +195,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2019-03-01",
+            "apiVersion": "2021-11-01",
             "name": "[parameters('virtualMachineName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
@@ -282,7 +282,7 @@
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-11-01",
+            "apiVersion": "2021-01-01",
             "name": "UpdateVNetDNS",
             "dependsOn": [
                 "CreateADForest"
