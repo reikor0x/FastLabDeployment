@@ -112,6 +112,7 @@
         },
     },
     "resources": [
+
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2020-08-01",
@@ -170,7 +171,10 @@
                             "privateIPAddress": "[parameters('privateIPAddress')]",
                             "subnet": {
                                 "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]"
-                            }
+            			
+                            },
+					"publicIPAddress": {
+              				"id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddressName'))]" }
                         }
                     }
                 ]

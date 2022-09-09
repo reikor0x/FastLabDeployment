@@ -34,6 +34,30 @@
     }
   },
   "resources": [
+{
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2020-11-01",
+      "name": "TestLab-NSG",
+      "location": "[parameters('location')]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "AllowRDP",
+            "properties": {
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefixes": "*",
+              "destinationAddressPrefix": "10.0.0.4",
+              "access": "Allow",
+              "priority": 201,
+              "direction": "Inbound"
+            }
+          }
+        ]
+      }
+    },
+
     {
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[parameters('virtualNetworkName')]",
@@ -49,7 +73,10 @@
           {
             "name": "[parameters('subnetName')]",
             "properties": {
-              "addressPrefix": "[parameters('subnetRange')]"
+              "addressPrefix": "[parameters('subnetRange')]",
+"networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('domainServicesNSGName'))]"
+              }
             }
           }
         ]
