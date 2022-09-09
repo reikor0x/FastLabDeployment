@@ -67,7 +67,7 @@
     {
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[parameters('virtualNetworkName')]",
-      "apiVersion": "2019-12-01",
+      "apiVersion": "2020-11-01",
       "location": "[parameters('location')]",
       "properties": {
         "addressSpace": {
@@ -82,7 +82,10 @@
               "addressPrefix": "[parameters('subnetRange')]",
 				      "networkSecurityGroup": {
                 	"id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnetNSGName'))]"
-              }
+              },
+              "dependsOn": [
+                  "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('subnetNSGName'))]"
+                ]
             }
           }
         ]
